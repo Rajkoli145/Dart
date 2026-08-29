@@ -1,10 +1,10 @@
 # Assignment 1 Report - Library System in Dart
 
-## What the assignment was
+## 1. What the assignment was
 
 Write a Dart console program that uses variables, loops, functions, and OOP (a class with inheritance) to model a simple library system. I built a small library with books that can be added, issued, and returned, and I used a subclass to show inheritance.
 
-## How the program is structured
+## 2. How the program is structured
 
 The project has one file per feature inside `lib`:
 
@@ -16,7 +16,7 @@ The project has one file per feature inside `lib`:
 
 I split it this way so each file has one job. `digital_book.dart` and `library.dart` both import `book.dart` since they depend on the `Book` class, and `main.dart` imports everything to wire it all together.
 
-## Concepts I used
+## 3. Concepts I used
 
 **Variables** - Every class has fields like `title`, `author`, `isIssued`, and in `DigitalBook`, `fileSizeMb`. I also used a local `count` variable inside the helper function.
 
@@ -26,7 +26,7 @@ I split it this way so each file has one job. `digital_book.dart` and `library.d
 
 **OOP with inheritance** - `Book` is the base class with a constructor and a `showInfo()` method. `DigitalBook extends Book`, calls `super(title, author)` in its constructor, adds its own field `fileSizeMb`, and overrides `showInfo()` with `@override`, calling `super.showInfo()` first and then printing the extra file size line. This was the main inheritance part of the assignment.
 
-## Program output
+## 4. Program output
 
 This is the actual output from running `dart run lib/main.dart`:
 
@@ -57,7 +57,7 @@ Screenshot of this same run:
 
 ![Terminal output](terminal_output.png)
 
-## What I understood
+## 5. What I understood
 
 Before this assignment I understood loops and functions fine on their own, but I hadn't really used inheritance in Dart specifically. Doing this made a few things click:
 
@@ -66,7 +66,7 @@ Before this assignment I understood loops and functions fine on their own, but I
 - Calling `super.showInfo()` inside the overridden method let me reuse the parent's printing logic instead of copy-pasting it, which is the actual point of inheritance - extending behavior, not rewriting it.
 - Keeping each class in its own file and importing them makes the entry point much easier to read, and it's closer to how a real Dart package would be laid out.
 
-## Challenges I faced and how I solved them
+## 6. Challenges I faced and how I solved them
 
 **Problem 1: Deciding what "issuing" a book should actually change.**
 At first I wasn't sure if I should remove a book from the list when it's issued, or just mark it somehow. I went with a boolean field `isIssued` on the `Book` class instead of removing it from the list, because the library still owns the book, it's just not available. This turned out to be the simpler and more correct model.
@@ -80,6 +80,6 @@ When I first wrote everything in one `main.dart`, it worked, but it felt messy t
 **Problem 4: Testing without a UI.**
 Since this is a console program, I had to just run it directly and read the printed output carefully to check the behavior was right - like making sure issuing an already-issued book prints a proper message instead of just silently doing it again, and that returning a book that doesn't exist prints "Book not found" instead of crashing.
 
-## Conclusion
+## 7. Conclusion
 
 Overall this assignment helped me actually use inheritance in Dart instead of just reading about it, and it gave me practice organizing a small project into more than one file. The program covers all four required pieces - variables, loops, functions, and a class hierarchy with inheritance - and I tested it by running it and checking the output matched what I expected for each case (available book, already issued, book not found, and returning a book).
