@@ -1,6 +1,6 @@
 # Dart Assignments
 
-School assignments, each on its own branch.
+Clg assignments, each on its own branch.
 
 ## Assignment 1 - Library System
 
