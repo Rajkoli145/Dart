@@ -1,27 +1,4 @@
-class Book {
-  String title;
-  String author;
-  bool isIssued;
-
-  Book(this.title, this.author) : isIssued = false;
-
-  void showInfo() {
-    print('$title by $author - ${isIssued ? "Issued" : "Available"}');
-  }
-}
-
-class DigitalBook extends Book {
-  double fileSizeMb;
-
-  DigitalBook(String title, String author, this.fileSizeMb)
-      : super(title, author);
-
-  @override
-  void showInfo() {
-    super.showInfo();
-    print('  File size: ${fileSizeMb}MB');
-  }
-}
+import 'book.dart';
 
 class Library {
   String name;
@@ -69,14 +46,4 @@ class Library {
       book.showInfo();
     }
   }
-}
-
-int countAvailableBooks(List<Book> books) {
-  int count = 0;
-  for (var book in books) {
-    if (!book.isIssued) {
-      count++;
-    }
-  }
-  return count;
 }

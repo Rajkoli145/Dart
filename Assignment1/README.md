@@ -12,7 +12,10 @@ Simple Dart console program that models a library. Built for my Dart assignment 
 
 ## Files
 
-- `lib/library_system.dart` - the `Book`, `DigitalBook`, and `Library` classes plus a helper function
+- `lib/book.dart` - the `Book` class
+- `lib/digital_book.dart` - `DigitalBook`, extends `Book`
+- `lib/library.dart` - the `Library` class
+- `lib/book_utils.dart` - `countAvailableBooks` helper function
 - `lib/main.dart` - runs everything, this is the entry point
 
 ## How to run

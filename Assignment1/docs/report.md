@@ -6,12 +6,15 @@ Write a Dart console program that uses variables, loops, functions, and OOP (a c
 
 ## How the program is structured
 
-The project has two files inside `lib`:
+The project has one file per feature inside `lib`:
 
-- `library_system.dart` holds all the classes: `Book`, `DigitalBook` (which extends `Book`), and `Library`. It also has a small helper function, `countAvailableBooks`, that loops through a list of books and counts how many are not issued.
-- `main.dart` is just the entry point. It imports `library_system.dart`, creates a `Library`, adds a few books, and calls its methods.
+- `book.dart` holds the `Book` class.
+- `digital_book.dart` holds `DigitalBook`, which extends `Book`.
+- `library.dart` holds the `Library` class - adding, issuing, returning, and listing books.
+- `book_utils.dart` holds `countAvailableBooks`, a standalone helper function.
+- `main.dart` is just the entry point. It imports all the above, creates a `Library`, adds a few books, and calls its methods.
 
-I kept the logic separate from `main.dart` on purpose so the entry point stays short and the actual "model" of the library lives in its own file, which felt closer to how real projects are organized.
+I split it this way so each file has one job. `digital_book.dart` and `library.dart` both import `book.dart` since they depend on the `Book` class, and `main.dart` imports everything to wire it all together.
 
 ## Concepts I used
 
@@ -61,7 +64,7 @@ Before this assignment I understood loops and functions fine on their own, but I
 - A subclass constructor has to call the parent constructor, and in Dart that happens with `: super(...)` after the constructor's parameter list, not inside the body like I first assumed.
 - `@override` isn't required to make overriding work, but it's good practice because the compiler will warn you if the method signature doesn't actually match anything in the parent class. That saved me from a silly mistake later.
 - Calling `super.showInfo()` inside the overridden method let me reuse the parent's printing logic instead of copy-pasting it, which is the actual point of inheritance - extending behavior, not rewriting it.
-- Keeping model classes in a separate file from `main.dart` and importing them makes the entry point much easier to read, and it's closer to how a real Dart package would be laid out.
+- Keeping each class in its own file and importing them makes the entry point much easier to read, and it's closer to how a real Dart package would be laid out.
 
 ## Challenges I faced and how I solved them
 
@@ -71,8 +74,8 @@ At first I wasn't sure if I should remove a book from the list when it's issued,
 **Problem 2: Inheritance constructor syntax.**
 I initially wrote the `DigitalBook` constructor without calling the parent constructor properly and got a compile error about the superclass not being initialized. Once I looked at how the initializer list works (`: super(title, author)`), it made sense - the superclass fields have to be set before the subclass constructor body runs.
 
-**Problem 3: Splitting the file.**
-When I first wrote everything in one `main.dart`, it worked, but it felt messy to have the classes and the "running" logic in the same place. I moved the classes and the helper function into `library_system.dart` and just imported it with `import 'library_system.dart';` in `main.dart`. Had a small mix-up with the import path at first since I was thinking I needed the full `lib/` prefix, but within the `lib` folder itself you just import by filename directly.
+**Problem 3: Splitting into one file per class.**
+When I first wrote everything in one `main.dart`, it worked, but it felt messy to have every class and the "running" logic in the same place. I split it into `book.dart`, `digital_book.dart`, `library.dart`, and `book_utils.dart`, and imported them where needed with plain relative imports like `import 'book.dart';`. Had a small mix-up with the import path at first since I was thinking I needed the full `lib/` prefix, but within the `lib` folder itself you just import by filename directly. I also had to remember that `digital_book.dart` and `library.dart` each need their own `import 'book.dart';` since Dart doesn't share imports across files automatically.
 
 **Problem 4: Testing without a UI.**
 Since this is a console program, I had to just run it directly and read the printed output carefully to check the behavior was right - like making sure issuing an already-issued book prints a proper message instead of just silently doing it again, and that returning a book that doesn't exist prints "Book not found" instead of crashing.
