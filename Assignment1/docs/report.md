@@ -50,7 +50,9 @@ Library visit reminder #2
 Library visit reminder #3
 ```
 
-(I'm submitting an actual screenshot of this same output alongside this report as required.)
+Screenshot of this same run:
+
+![Terminal output](terminal_output.png)
 
 ## What I understood
 
