@@ -60,7 +60,7 @@ class ProfileCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.location_on, color: AppColors.accent, size: 16),
+              const Icon(Icons.location_on, color: AppColors.verdigris, size: 16),
               const SizedBox(width: 4),
               Text(
                 'Mumbai, India',
@@ -83,8 +83,8 @@ class ProfileCard extends StatelessWidget {
               icon: const Icon(Icons.person_add_alt_1, size: 18),
               label: const Text('Follow'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.accent,
-                foregroundColor: AppColors.cardBackground,
+                backgroundColor: AppColors.burntPeach,
+                foregroundColor: AppColors.textPrimary,
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),

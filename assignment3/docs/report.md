@@ -21,7 +21,7 @@ Build a Flutter profile card screen using `Column`, `Row`, `Container`, `CircleA
 
 **Text / Icon** - every label on the card is `Text` with a style pulled from `AppColors`. `Icon` is used for the location pin, the person icon in the avatar, and the icon on the follow button.
 
-**Custom theme colors** - `AppColors` defines background, card background, accent, and two text colors. Nothing on the card uses a default Material color.
+**Custom theme colors** - `AppColors` holds a five-color palette (charcoal blue, verdigris, tuscan sun, sandy brown, burnt peach) and assigns each one a role: charcoal blue for the card, sandy brown for the avatar ring, verdigris for the location pin, tuscan sun for the stat numbers, burnt peach for the follow button. Nothing on the card uses a default Material color.
 
 ## 4. Output
 
@@ -42,7 +42,7 @@ Screenshot of the actual widget, rendered from the real `ProfileScreen`:
 
 **Getting a real screenshot without a running emulator.** I didn't want to depend on a simulator being open, so I rendered the actual widget tree in a Flutter test and saved it as a PNG instead of a mockup.
 
-**Picking colors that actually look custom.** First pass reused Material blue and just changed the background, which barely looked different from the default theme. Settled on a dark navy card with a warm accent color instead, which made the "custom theme" part of the assignment obvious at a glance.
+**Picking colors that actually look custom.** First pass reused Material blue and just changed the background, which barely looked different from the default theme. Switched to a five-color palette (charcoal blue, verdigris, tuscan sun, sandy brown, burnt peach) and gave each color one clear job on the card instead of reusing the same accent everywhere, which made the "custom theme" part of the assignment obvious at a glance.
 
 ## 7. Conclusion
 

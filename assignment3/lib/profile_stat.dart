@@ -20,7 +20,7 @@ class ProfileStatColumn extends StatelessWidget {
         Text(
           stat.value,
           style: const TextStyle(
-            color: AppColors.textPrimary,
+            color: AppColors.tuscanSun,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
