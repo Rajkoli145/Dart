@@ -19,3 +19,9 @@ Branch: [assignment2](https://github.com/Rajkoli145/Dart/tree/assignment2)
 Flutter screen built with Column, Row, Container, CircleAvatar, Text, and Icon widgets, using a custom color theme.
 
 Branch: [assignment3](https://github.com/Rajkoli145/Dart/tree/assignment3)
+
+## Assignment 4 - Responsive Dashboard
+
+Flutter dashboard using ListView, GridView, MediaQuery, and Flexible/Expanded, restructuring itself between phone and desktop widths.
+
+Branch: [assignment4](https://github.com/Rajkoli145/Dart/tree/assignment4)
